@@ -1,0 +1,9 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: "patient"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"

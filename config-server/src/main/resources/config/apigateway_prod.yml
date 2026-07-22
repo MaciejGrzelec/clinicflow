@@ -1,0 +1,10 @@
+#spring.profiles.active=prod
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    activate:
+      on-profile: "prod"
+server:
+  port: 8080
