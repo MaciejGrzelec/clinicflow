@@ -14,8 +14,9 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
+
   configserver:
-   image: "MaciejGrzelec/configserver"
+   image: "maciejgrzelec/configserver:v1"
    container_name: configserver-ms
    ports:
      - "8071:8071"
@@ -29,11 +30,11 @@ services:
      retries: 10
      start_period: 10s
    extends:
-     file: common-config.yml
+     file: ./common-config.yml
      service: microservice-base-config
 
   apigateway:
-    image: "MaciejGrzelec/apigateway:s6"
+    image: "maciejgrzelec/apigateway:v1"
     container_name: apigateway-ms
     ports:
       - "8080:8080"
@@ -43,11 +44,11 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "apigateway"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
 
   appointment:
-    image: "MaciejGrzelec/appointment:s6"
+    image: "maciejgrzelec/appointment:v1"
     container_name: appointment-ms
     ports:
       - "8081:8081"
@@ -57,11 +58,11 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "appointment"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
 
   clinic:
-    image: "MaciejGrzelec/clinic:s6"
+    image: "maciejgrzelec/clinic:v1"
     container_name: clinic-ms
     ports:
       - "8082:8082"
@@ -71,11 +72,11 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "clinic"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
 
   notification:
-    image: "MaciejGrzelec/notification:s6"
+    image: "maciejgrzelec/notification:v1"
     container_name: notification-ms
     ports:
       - "8084:8084"
@@ -85,11 +86,11 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "notification"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
 
   patient:
-    image: "MaciejGrzelec/patient:s6"
+    image: "maciejgrzelec/patient:v1"
     container_name: patient-ms
     ports:
       - "8085:8085"
@@ -99,11 +100,11 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "patient"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
 
   payment:
-    image: "MaciejGrzelec/payment:s6"
+    image: "maciejgrzelec/payment:v1"
     container_name: payment-ms
     ports:
       - "8086:8086"
@@ -113,5 +114,9 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "payment"
     extends:
-      file: common-config.yml
+      file: ./common-config.yml
       service: microservice-configserver-config
+
+networks:
+  clinicflow:
+    driver: bridge
