@@ -22,15 +22,15 @@ services:
    depends_on:
      rabbit:
        condition: service_healthy
-     healthcheck:
-       test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
-       interval: 10s
-       timeout: 5s
-       retries: 10
-       start_period: 10s
-     extends:
-       file: common-config.yml
-       service: microservice-base-config
+   healthcheck:
+     test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+     interval: 10s
+     timeout: 5s
+     retries: 10
+     start_period: 10s
+   extends:
+     file: common-config.yml
+     service: microservice-base-config
 
   apigateway:
     image: "MaciejGrzelec/apigateway:s6"
