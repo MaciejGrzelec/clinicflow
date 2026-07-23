@@ -1,15 +1,8 @@
-spring:
-  application:
-    name: clinic-service
-
-  datasource:
-    url: jdbc:postgresql://localhost:5433/clinic_db
-    username: clinicflow
-    password: clinicflow
-
-  jpa:
-    hibernate:
-      ddl-auto: validate
-
-  flyway:
-    enabled: true
+accounts:
+  message: "message"
+  message2: "message2"
+  message3: "message3"
+  more:
+    value1: "value1"
+    value2: "value2"
+  phones: {1,2,3}

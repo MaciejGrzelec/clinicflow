@@ -1,0 +1,8 @@
+accounts:
+  message: "message_prod"
+  message2: "message_prod2"
+  message3: "message_prod3"
+  more:
+    value1: "value1_prod"
+    value2: "value2_prod"
+  phones: {1,2,3}

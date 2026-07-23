@@ -1,13 +1,3 @@
-spring:
-  application:
-    name: api-gateway
-  config:
-    import:
-      - "apigateway_prod.yml"
-  profiles:
-    active:
-      - "prod"
-
 accounts:
   message: "message"
   message2: "message2"
