@@ -1,6 +1,7 @@
 package pl.clinicflow.clinic_service.specialization;
 
 import java.net.URI;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,9 +44,13 @@ public class SpecializationController {
 
     @GetMapping("/{id}")
     public ResponseEntity<SpecializationResponse> getById(@PathVariable final UUID id) {
-        final SpecializationResponse specialization = specializationService.getById(id);
+        UUID uuid = UUID.randomUUID();
+        SpecializationResponse specializationResponse = new SpecializationResponse(uuid,
+                "1", "1", "1", true, Instant.MIN, "by", Instant.MAX, "mod");
 
-        return ResponseEntity.ok(specialization);
+//        final SpecializationResponse specialization = specializationService.getById(id);
+
+        return ResponseEntity.ok(specializationResponse);
     }
 
     @GetMapping
